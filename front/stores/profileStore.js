@@ -95,7 +95,7 @@ export const useProfileStore = defineStore('profile', () => {
     if (!activeProfile.value || profileList.value.length <= 1) {
       return null
     }
-    const profileName = activeProfile.value.name.toLowerCase()
+    const profileName = (activeProfile.value?.name ?? '').toLowerCase()
     return profileName.substring(0, 3)
   })
 
