@@ -1,4 +1,6 @@
 {
+  "stop": "Fermare",
+  "requests_remaining": "richieste rimanenti",
   "new": "Nuovo",
   "save": "Salva",
   "delete": "Elimina",
@@ -35,6 +37,11 @@
   "budget": "Budget",
   "budgets": "Budget",
   "budget_select": "Seleziona un budget",
+  "piggy_bank": "Salvadanaio",
+  "piggy_banks": "Salvadanai",
+  "piggy_bank_select": "Seleziona un salvadanaio",
+  "recurring_transaction": "Transazione ricorrente",
+  "recurring_transactions": "Transazioni ricorrenti",
   "attachment": "Allegato",
   "attachments": "Allegati",
   "account": "Conto",
@@ -100,12 +107,20 @@
       "pico_backend_url": "URL backend Pico",
       "sync_settings_via_token": "Sincronizza le impostazioni tra dispositivi tramite token",
       "days_between_sync": "Giorni tra una sincronizzazione completa degli \"Extra\"",
+      "enabled_resources": "Risorse abilitate",
+      "enable_budgets": "Abilita budget",
+      "enable_categories": "Abilita categorie",
+      "enable_tags": "Abilita tag",
+      "enable_piggy_banks": "Abilita i salvadanai",
+      "enable_recurring_transactions": "Abilita transazioni ricorrenti",
       "loaded_data_stats": "Statistiche dei dati caricati",
       "account": "Conto",
       "categories": "Categorie",
       "tags": "Tag",
       "templates": "Modelli",
       "budgets": "Budget",
+      "piggy_banks": "Salvadanai",
+      "recurring_transactions": "Transazioni ricorrenti",
       "last_sync": "Ultima sincronizzazione",
       "verifying": "Verifica in corso...",
       "invalid_endpoint": "L'endpoint fornito non è corretto.",
@@ -213,7 +228,9 @@
         "expenses_by_category": "Spese per categorie",
         "transfers_by_tag": "Trasferimenti per tag",
         "transfers_by_category": "Trasferimenti per categorie",
-        "todo_transactions": "Transazioni da fare"
+        "todo_transactions": "Transazioni da fare",
+        "piggy_banks": "Salvadanai",
+        "recurring_transactions": "Prossime transazioni ricorrenti"
       }
     },
     "token": {
@@ -268,6 +285,7 @@
     "required": "Campo obbligatorio"
   },
   "primary": "Principale",
+  "secondary": "Secondario",
   "classification": "Classificazione",
   "extra": "Extra",
   "main": "Principale",
@@ -333,6 +351,35 @@
     "type": "Tipo di budget",
     "period": "Periodo del budget"
   },
+  "piggy_bank_page": {
+    "title_add": "Aggiungi salvadanaio",
+    "title_edit": "Modifica salvadanaio",
+    "saved": "Salvato",
+    "percent": "Percentuale",
+    "left_to_save": "Resta da salvare",
+    "target_amount": "Importo obiettivo",
+    "current_amount": "Importo risparmiato",
+    "start_date": "Data di inizio",
+    "target_date": "Data prevista"
+  },
+  "recurring_transaction_page": {
+    "title_add": "Aggiungi transazione ricorrente",
+    "title_edit": "Modifica transazione ricorrente",
+    "repetition": "Ripetizione",
+    "repetition_type": "Si ripete",
+    "weekday": "Giorno della settimana",
+    "day_of_month": "Giorno del mese",
+    "week_of_month": "Settimana del mese (1-5)",
+    "yearly_date": "Si ripete ogni anno",
+    "first_date": "Primo appuntamento",
+    "repetition_ends": "La ripetizione termina",
+    "repeat_until": "Ripeti fino a",
+    "nr_of_repetitions": "Numero di ripetizioni",
+    "upcoming": "Prossimi eventi",
+    "next_date": "Prossimo",
+    "inactive": "Inattivo",
+    "no_upcoming": "Nessuna transazione ricorrente imminente ^_^"
+  },
   "exchange_rate_page": {
     "relative_to_usd": "Rispetto all'USD"
   },
@@ -346,6 +393,11 @@
       "surplus": "Avanzo",
       "days_remaining": "Giorni rimanenti",
       "savings_summary": "Riepilogo risparmi"
+    },
+    "accounts": {
+      "by_currency": "Per valuta",
+      "by_group": "Per gruppo",
+      "total": "Totale"
     },
     "budget": {
       "spent": "Speso",

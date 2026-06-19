@@ -1,4 +1,6 @@
 {
+  "stop": "Detener",
+  "requests_remaining": "solicitudes restantes",
   "new": "Agregar",
   "save": "Guardar",
   "delete": "Borrar",
@@ -35,6 +37,11 @@
   "budget": "Presupuesto",
   "budgets": "Presupuestos",
   "budget_select": "Selecciona un presupuesto",
+  "piggy_bank": "Hucha",
+  "piggy_banks": "alcancías",
+  "piggy_bank_select": "Seleccione una alcancía",
+  "recurring_transaction": "Transacción recurrente",
+  "recurring_transactions": "Transacciones recurrentes",
   "attachment": "Adjunto",
   "attachments": "Adjuntos",
   "account": "Cuenta",
@@ -100,12 +107,20 @@
       "pico_backend_url": "URL del backend de Pico",
       "sync_settings_via_token": "Sincronizar ajustes entre dispositivos mediante token",
       "days_between_sync": "Días entre sincronización completa de \"Extras\"",
+      "enabled_resources": "Recursos habilitados",
+      "enable_budgets": "Habilitar presupuestos",
+      "enable_categories": "Habilitar categorías",
+      "enable_tags": "Habilitar etiquetas",
+      "enable_piggy_banks": "Habilitar alcancías",
+      "enable_recurring_transactions": "Habilitar transacciones recurrentes",
       "loaded_data_stats": "Estadísticas de datos cargados",
       "account": "Cuenta",
       "categories": "Categorías",
       "tags": "Etiquetas",
       "templates": "Plantillas",
       "budgets": "Presupuestos",
+      "piggy_banks": "alcancías",
+      "recurring_transactions": "Transacciones recurrentes",
       "last_sync": "Última sincronización",
       "verifying": "Verificando...",
       "invalid_endpoint": "El endpoint proporcionado no es correcto.",
@@ -213,7 +228,9 @@
         "expenses_by_category": "Gastos por categorías",
         "transfers_by_tag": "Transferencias por etiquetas",
         "transfers_by_category": "Transferencias por categorías",
-        "todo_transactions": "Transacciones pendientes"
+        "todo_transactions": "Transacciones pendientes",
+        "piggy_banks": "alcancías",
+        "recurring_transactions": "Próximas transacciones recurrentes"
       }
     },
     "token": {
@@ -226,20 +243,20 @@
     "info": "Información",
     "items_list_deleted": "- Los elementos de una lista se pueden eliminar deslizando en horizontal",
     "list_updated": "- Una lista puede actualizarse deslizando hacia abajo para refrescar",
-	"popups_dismissed": "- Las ventanas emergentes que aparecen desde abajo pueden cerrarse deslizando hacia abajo",
-	"dashboard_clickable": "- En el panel principal, la mayoría de los íconos y barras de gráficos son clicables.",
+    "popups_dismissed": "- Las ventanas emergentes que aparecen desde abajo pueden cerrarse deslizando hacia abajo",
+    "dashboard_clickable": "- En el panel principal, la mayoría de los íconos y barras de gráficos son clicables.",
     "credits": "Créditos",
     "developed_by": "- Desarrollado por Mihai Cioraneanu - <a href=\"{url}\">GitHub</a>",
     "using_laravel_nuxt": "- Usando <a href=\"https://laravel.com/\" target=\"_blank\">Laravel</a> y <a href=\"https://nuxt.com/\" target=\"_blank\">Nuxt</a>",
-	"consuming_firefly": "- Consumiendo la API REST de <a href=\"https://www.firefly-iii.org\" target=\"_blank\">Firefly III</a>",
-	"ui_theme_vant": "- Con un tema de interfaz basado en <a href=\"https://vant-ui.github.io\" target=\"_blank\">Vant</a>",
-	"exchange_rate_api": "- Tipo de cambio por <a href=\"https://www.exchangerate-api.com\">Exchange Rate API</a>",
-	"iconpacks_tabler": "- Paquetes de íconos: <a href=\"https://tabler.io/icons\" target=\"_blank\">Tabler Icons</a>",
-	"iconpacks_fluent": "- Paquetes de íconos: <a href=\"https://github.com/microsoft/fluentui\" target=\"_blank\">Fluent UI System Icons</a>",
-	"iconpacks_circle_avatar": "- Paquetes de íconos: <a href=\"https://www.svgrepo.com/author/Laura%20Reen\" target=\"_blank\">Circle Avatar Vectors by Laura Reen</a>",
-	"iconpacks_svg_repo": "- Paquetes de íconos: <a href=\"https://www.svgrepo.com/\" target=\"_blank\">SVG Repo</a>",
-	"iconpacks_freepik": "- Paquetes de íconos: <a href=\"https://www.freepik.com/\" target=\"_blank\">Freepik</a>",
-	"illustrations_undraw": "- Ilustraciones: <a href=\"https://undraw.co\" target=\"_blank\">unDraw</a>"
+    "consuming_firefly": "- Consumiendo la API REST de <a href=\"https://www.firefly-iii.org\" target=\"_blank\">Firefly III</a>",
+    "ui_theme_vant": "- Con un tema de interfaz basado en <a href=\"https://vant-ui.github.io\" target=\"_blank\">Vant</a>",
+    "exchange_rate_api": "- Tipo de cambio por <a href=\"https://www.exchangerate-api.com\">Exchange Rate API</a>",
+    "iconpacks_tabler": "- Paquetes de íconos: <a href=\"https://tabler.io/icons\" target=\"_blank\">Tabler Icons</a>",
+    "iconpacks_fluent": "- Paquetes de íconos: <a href=\"https://github.com/microsoft/fluentui\" target=\"_blank\">Fluent UI System Icons</a>",
+    "iconpacks_circle_avatar": "- Paquetes de íconos: <a href=\"https://www.svgrepo.com/author/Laura%20Reen\" target=\"_blank\">Circle Avatar Vectors by Laura Reen</a>",
+    "iconpacks_svg_repo": "- Paquetes de íconos: <a href=\"https://www.svgrepo.com/\" target=\"_blank\">SVG Repo</a>",
+    "iconpacks_freepik": "- Paquetes de íconos: <a href=\"https://www.freepik.com/\" target=\"_blank\">Freepik</a>",
+    "illustrations_undraw": "- Ilustraciones: <a href=\"https://undraw.co\" target=\"_blank\">unDraw</a>"
   },
   "page_select": {
     "label": "Página de inicio",
@@ -268,6 +285,7 @@
     "required": "Este campo es obligatorio"
   },
   "primary": "Principal",
+  "secondary": "Secundario",
   "classification": "Clasificación",
   "extra": "Extra",
   "main": "Principal",
@@ -333,6 +351,35 @@
     "type": "Tipo de presupuesto",
     "period": "Período del presupuesto"
   },
+  "piggy_bank_page": {
+    "title_add": "Añadir alcancía",
+    "title_edit": "Editar alcancía",
+    "saved": "Guardado",
+    "percent": "Por ciento",
+    "left_to_save": "Queda por salvar",
+    "target_amount": "Cantidad objetivo",
+    "current_amount": "Cantidad ahorrada",
+    "start_date": "Fecha de inicio",
+    "target_date": "fecha objetivo"
+  },
+  "recurring_transaction_page": {
+    "title_add": "Agregar transacción recurrente",
+    "title_edit": "Editar transacción recurrente",
+    "repetition": "Repetición",
+    "repetition_type": "Se repite",
+    "weekday": "Día de la semana",
+    "day_of_month": "dia del mes",
+    "week_of_month": "Semana del mes (1-5)",
+    "yearly_date": "Se repite cada año en",
+    "first_date": "primera cita",
+    "repetition_ends": "La repetición termina",
+    "repeat_until": "Repita hasta",
+    "nr_of_repetitions": "Número de repeticiones",
+    "upcoming": "Próximos sucesos",
+    "next_date": "Próximo",
+    "inactive": "Inactivo",
+    "no_upcoming": "No hay transacciones recurrentes próximas ^_^"
+  },
   "exchange_rate_page": {
     "relative_to_usd": "Relativo al USD"
   },
@@ -379,5 +426,9 @@
     "tutorial_body": "<p>Un <b>perfil</b> es la colección de todas las configuraciones que se encuentran en las páginas de <code>Ajustes</code>.</p><br><p>Puedes tener múltiples perfiles, pero solo uno puede estar activo a la vez. Puedes cambiar entre ellos con un <i>toque</i>, y editarlos mediante <i>doble toque</i> o <i>toque prolongado</i></p><br><p>Un caso de uso es tener múltiples valores predeterminados para el <b>formulario de transacciones</b>: uno para tu uso diario y otro para tus vacaciones. El perfil de vacaciones puede tener una cuenta origen diferente, o aplicar automáticamente una etiqueta llamada \"Vacaciones Agosto 2026\". Esto facilita ver tu gasto total por esa etiqueta.</p>"
   },
   "profile": "Perfil",
-  "new_transaction": "Nueva transacción"
+  "new_transaction": "Nueva transacción",
+  "general": {
+    "list_empty": "Aún no hay artículos",
+    "list_empty_subtitle": "Agregue algunas entradas con el botón superior derecho."
+  }
 }

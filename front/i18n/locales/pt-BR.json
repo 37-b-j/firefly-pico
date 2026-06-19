@@ -1,4 +1,6 @@
 {
+  "stop": "Parar",
+  "requests_remaining": "solicitações restantes",
   "new": "Novo",
   "save": "Salvar",
   "delete": "Excluir",
@@ -35,6 +37,11 @@
   "budget": "Orçamento",
   "budgets": "Orçamentos",
   "budget_select": "Selecione um orçamento",
+  "piggy_bank": "Mealheiro",
+  "piggy_banks": "Mealheiros",
+  "piggy_bank_select": "Selecione um cofrinho",
+  "recurring_transaction": "Transação recorrente",
+  "recurring_transactions": "Transações recorrentes",
   "attachment": "Apego",
   "attachments": "Anexos",
   "account": "Conta",
@@ -100,12 +107,20 @@
       "pico_backend_url": "URL do backend do Pico",
       "sync_settings_via_token": "Sincronizar configurações entre dispositivos via token",
       "days_between_sync": "Dias entre sincronização completa dos \"Extras\"",
+      "enabled_resources": "Recursos ativados",
+      "enable_budgets": "Ativar orçamentos",
+      "enable_categories": "Habilitar categorias",
+      "enable_tags": "Ativar tags",
+      "enable_piggy_banks": "Habilitar cofrinhos",
+      "enable_recurring_transactions": "Habilite transações recorrentes",
       "loaded_data_stats": "Estatísticas dos dados carregados",
       "account": "Contas",
       "categories": "Categorias",
       "tags": "Tags",
       "templates": "Modelos",
       "budgets": "Orçamentos",
+      "piggy_banks": "Mealheiros",
+      "recurring_transactions": "Transações recorrentes",
       "last_sync": "Última sincronização",
       "verifying": "Verificando...",
       "invalid_endpoint": "O endpoint fornecido não está correto.",
@@ -213,7 +228,9 @@
         "expenses_by_category": "Despesas por categorias",
         "transfers_by_tag": "Transferências por tags",
         "transfers_by_category": "Transferências por categorias",
-        "todo_transactions": "Transações a fazer"
+        "todo_transactions": "Transações a fazer",
+        "piggy_banks": "Mealheiros",
+        "recurring_transactions": "Próximas transações recorrentes"
       }
     },
     "token": {
@@ -268,6 +285,7 @@
     "required": "Campo obrigatório"
   },
   "primary": "Primário",
+  "secondary": "Secundário",
   "classification": "Classificação",
   "extra": "Extra",
   "main": "Principal",
@@ -333,6 +351,35 @@
     "type": "Tipo de orçamento",
     "period": "Período do orçamento"
   },
+  "piggy_bank_page": {
+    "title_add": "Adicionar cofrinho",
+    "title_edit": "Editar cofrinho",
+    "saved": "Salvo",
+    "percent": "Por cento",
+    "left_to_save": "Resta salvar",
+    "target_amount": "Valor desejado",
+    "current_amount": "Valor economizado",
+    "start_date": "Data de início",
+    "target_date": "Data prevista"
+  },
+  "recurring_transaction_page": {
+    "title_add": "Adicionar transação recorrente",
+    "title_edit": "Editar transação recorrente",
+    "repetition": "Repetição",
+    "repetition_type": "Repete",
+    "weekday": "Dia da semana",
+    "day_of_month": "Dia do mês",
+    "week_of_month": "Semana do mês (1-5)",
+    "yearly_date": "Repete-se todos os anos em",
+    "first_date": "Primeiro encontro",
+    "repetition_ends": "A repetição termina",
+    "repeat_until": "Repita até",
+    "nr_of_repetitions": "Número de repetições",
+    "upcoming": "Próximas ocorrências",
+    "next_date": "Próximo",
+    "inactive": "Inativo",
+    "no_upcoming": "Nenhuma transação recorrente futura ^_^"
+  },
   "exchange_rate_page": {
     "relative_to_usd": "Relativo ao USD"
   },
@@ -346,6 +393,11 @@
       "surplus": "Superávit",
       "days_remaining": "Dias restantes",
       "savings_summary": "Resumo das economias"
+    },
+    "accounts": {
+      "by_currency": "Por moeda",
+      "by_group": "Por grupo",
+      "total": "Total"
     },
     "budget": {
       "spent": "Gasto",

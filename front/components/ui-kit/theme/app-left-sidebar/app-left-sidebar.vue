@@ -16,17 +16,7 @@
         <div class="section-label">{{ $t('main') }}</div>
         <app-left-sidebar-page label="Dashboard" :icon="TablerIconConstants.dashboard" :route="RouteConstants.ROUTE_DASHBOARD" />
         <app-left-sidebar-page label="Transactions" :icon="TablerIconConstants.transaction" :route="RouteConstants.ROUTE_TRANSACTION_LIST" />
-      </div>
-
-      <div class="nav-section">
-        <div class="section-label">{{ $t('extra') }}</div>
         <app-left-sidebar-page :label="$t('accounts')" :icon="TablerIconConstants.account" :route="RouteConstants.ROUTE_ACCOUNT_LIST" />
-        <app-left-sidebar-page :label="$t('templates')" :icon="TablerIconConstants.transactionTemplate" :route="RouteConstants.ROUTE_TRANSACTION_TEMPLATE_LIST" />
-        <app-left-sidebar-page :label="$t('budgets')" :icon="TablerIconConstants.budget" :route="RouteConstants.ROUTE_BUDGET_LIST" />
-        <app-left-sidebar-page :label="$t('piggy_banks')" :icon="TablerIconConstants.piggyBank" :route="RouteConstants.ROUTE_PIGGY_BANK_LIST" />
-        <app-left-sidebar-page :label="$t('recurring_transactions')" :icon="TablerIconConstants.recurringTransaction" :route="RouteConstants.ROUTE_RECURRING_TRANSACTION_LIST" />
-        <app-left-sidebar-page :label="$t('exchange_rates')" :icon="TablerIconConstants.exchangeRates" :route="RouteConstants.ROUTE_EXCHANGE_RATES" />
-        <app-left-sidebar-page :label="$t('currencies')" :icon="TablerIconConstants.currency" :route="RouteConstants.ROUTE_CURRENCY_LIST" />
       </div>
 
       <div class="nav-section">
@@ -35,6 +25,19 @@
         <app-left-sidebar-page :label="$t('categories')" :icon="TablerIconConstants.category" :route="RouteConstants.ROUTE_CATEGORY_LIST" />
       </div>
 
+      <div class="nav-section">
+        <div class="section-label">{{ $t('secondary') }}</div>
+        <app-left-sidebar-page :label="$t('templates')" :icon="TablerIconConstants.transactionTemplate" :route="RouteConstants.ROUTE_TRANSACTION_TEMPLATE_LIST" />
+        <app-left-sidebar-page :label="$t('budgets')" :icon="TablerIconConstants.budget" :route="RouteConstants.ROUTE_BUDGET_LIST" />
+        <app-left-sidebar-page :label="$t('piggy_banks')" :icon="TablerIconConstants.piggyBank" :route="RouteConstants.ROUTE_PIGGY_BANK_LIST" />
+        <app-left-sidebar-page :label="$t('recurring_transactions')" :icon="TablerIconConstants.recurringTransaction" :route="RouteConstants.ROUTE_RECURRING_TRANSACTION_LIST" />
+      </div>
+
+      <div class="nav-section">
+        <div class="section-label">{{ $t('extra') }}</div>
+        <app-left-sidebar-page :label="$t('exchange_rates')" :icon="TablerIconConstants.exchangeRates" :route="RouteConstants.ROUTE_EXCHANGE_RATES" />
+        <app-left-sidebar-page :label="$t('currencies')" :icon="TablerIconConstants.currency" :route="RouteConstants.ROUTE_CURRENCY_LIST" />
+      </div>
     </nav>
 
     <div class="nav-section mt-auto">
@@ -52,7 +55,6 @@
 </template>
 
 <script setup>
-
 import { useProfileStore } from '~/stores/profileStore.js'
 import RouteConstants from '~/constants/RouteConstants.js'
 import TablerIconConstants from '~/constants/TablerIconConstants.js'

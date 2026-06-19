@@ -1,4 +1,6 @@
 {
+  "stop": "Останавливаться",
+  "requests_remaining": "осталось запросов",
   "new": "Новый",
   "save": "Сохранить",
   "delete": "Удалить",
@@ -35,6 +37,11 @@
   "budget": "Бюджет",
   "budgets": "Бюджеты",
   "budget_select": "Выберите бюджет",
+  "piggy_bank": "Копилка",
+  "piggy_banks": "Копилки",
+  "piggy_bank_select": "Выберите копилку",
+  "recurring_transaction": "Регулярная транзакция",
+  "recurring_transactions": "Регулярные транзакции",
   "attachment": "Вложение",
   "attachments": "Вложения",
   "account": "Счет",
@@ -100,12 +107,20 @@
       "pico_backend_url": "URL бэкенда Pico",
       "sync_settings_via_token": "Синхронизация настроек через токен",
       "days_between_sync": "Дней между полной синхронизацией \"Дополнительно\"",
+      "enabled_resources": "Включенные ресурсы",
+      "enable_budgets": "Включить бюджеты",
+      "enable_categories": "Включить категории",
+      "enable_tags": "Включить теги",
+      "enable_piggy_banks": "Включить копилки",
+      "enable_recurring_transactions": "Включить повторяющиеся транзакции",
       "loaded_data_stats": "Статистика загруженных данных",
       "account": "Счет",
       "categories": "Категории",
       "tags": "Теги",
       "templates": "Шаблоны",
       "budgets": "Бюджеты",
+      "piggy_banks": "Копилки",
+      "recurring_transactions": "Регулярные транзакции",
       "last_sync": "Последняя синхр.",
       "verifying": "Проверка...",
       "invalid_endpoint": "Указанный адрес неверен.",
@@ -213,7 +228,9 @@
         "expenses_by_category": "Расходы по категориям",
         "transfers_by_tag": "Переводы по тегам",
         "transfers_by_category": "Переводы по категориям",
-        "todo_transactions": "Транзакции к выполнению"
+        "todo_transactions": "Транзакции к выполнению",
+        "piggy_banks": "Копилки",
+        "recurring_transactions": "Предстоящие повторяющиеся транзакции"
       }
     },
     "token": {
@@ -268,6 +285,7 @@
     "required": "Поле обязательно для заполнения"
   },
   "primary": "Основной",
+  "secondary": "вторичный",
   "classification": "Классификация",
   "extra": "Дополнительно",
   "main": "Главная",
@@ -333,6 +351,35 @@
     "type": "Тип бюджета",
     "period": "Период бюджета"
   },
+  "piggy_bank_page": {
+    "title_add": "Добавить копилку",
+    "title_edit": "Редактировать копилку",
+    "saved": "Сохранено",
+    "percent": "Процент",
+    "left_to_save": "Осталось сохранить",
+    "target_amount": "Целевая сумма",
+    "current_amount": "Сэкономленная сумма",
+    "start_date": "Дата начала",
+    "target_date": "Целевая дата"
+  },
+  "recurring_transaction_page": {
+    "title_add": "Добавить повторяющуюся транзакцию",
+    "title_edit": "Изменить повторяющуюся транзакцию",
+    "repetition": "Повторение",
+    "repetition_type": "Повторы",
+    "weekday": "День недели",
+    "day_of_month": "День месяца",
+    "week_of_month": "Неделя месяца (1-5)",
+    "yearly_date": "Повторяется каждый год",
+    "first_date": "Первое свидание",
+    "repetition_ends": "Повторение заканчивается",
+    "repeat_until": "Повторяйте до",
+    "nr_of_repetitions": "Количество повторений",
+    "upcoming": "Предстоящие события",
+    "next_date": "Следующий",
+    "inactive": "Неактивный",
+    "no_upcoming": "Нет предстоящих повторяющихся транзакций ^_^"
+  },
   "exchange_rate_page": {
     "relative_to_usd": "Относительно USD"
   },
@@ -346,6 +393,11 @@
       "surplus": "Профицит",
       "days_remaining": "Осталось дней",
       "savings_summary": "Сводка сбережений"
+    },
+    "accounts": {
+      "by_currency": "По валюте",
+      "by_group": "По группе",
+      "total": "Общий"
     },
     "budget": {
       "spent": "Потрачено",

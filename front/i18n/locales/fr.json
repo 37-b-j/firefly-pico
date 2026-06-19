@@ -1,4 +1,6 @@
 {
+  "stop": "Arrêt",
+  "requests_remaining": "demandes restantes",
   "new": "Nouveau",
   "save": "Enregistrer",
   "delete": "Supprimer",
@@ -35,6 +37,11 @@
   "budget": "Budget",
   "budgets": "Budgets",
   "budget_select": "Selectionner un budget",
+  "piggy_bank": "Tirelire",
+  "piggy_banks": "Tirelires",
+  "piggy_bank_select": "Sélectionnez une tirelire",
+  "recurring_transaction": "Opération récurrente",
+  "recurring_transactions": "Opérations récurrentes",
   "attachment": "Fichier",
   "attachments": "Fichiers",
   "account": "Compte",
@@ -100,12 +107,20 @@
       "pico_backend_url": "Pico URL",
       "sync_settings_via_token": "Token Firefly iii",
       "days_between_sync": "Nombre de jour avant synchronisation complète \"Extras\"",
+      "enabled_resources": "Ressources activées",
+      "enable_budgets": "Activer les budgets",
+      "enable_categories": "Activer les catégories",
+      "enable_tags": "Activer les balises",
+      "enable_piggy_banks": "Activer les tirelires",
+      "enable_recurring_transactions": "Activer les transactions récurrentes",
       "loaded_data_stats": "Statistique des données",
       "account": "Compte",
       "categories": "Categories",
       "tags": "Etiquettes",
       "templates": "Modèles",
       "budgets": "Budgets",
+      "piggy_banks": "Tirelires",
+      "recurring_transactions": "Opérations récurrentes",
       "last_sync": "Dernière synchronisation",
       "verifying": "Vérification...",
       "invalid_endpoint": "L'url de l'Api n'est pas correcte.",
@@ -213,7 +228,9 @@
         "expenses_by_category": "Dépenses par catégories",
         "transfers_by_tag": "Transferts par étiquettes",
         "transfers_by_category": "Transferts par catégories",
-        "todo_transactions": "Transactions à faire"
+        "todo_transactions": "Transactions à faire",
+        "piggy_banks": "Tirelires",
+        "recurring_transactions": "Opérations récurrentes à venir"
       }
     },
     "token": {
@@ -268,6 +285,7 @@
     "required": "Ce champ est obligatoire"
   },
   "primary": "Principal",
+  "secondary": "Secondaire",
   "classification": "Classification",
   "extra": "Supplémentaire",
   "main": "Principal",
@@ -333,6 +351,35 @@
     "type": "Type de budget",
     "period": "Période budgétaire"
   },
+  "piggy_bank_page": {
+    "title_add": "Ajouter une tirelire",
+    "title_edit": "Modifier la tirelire",
+    "saved": "Enregistré",
+    "percent": "Pour cent",
+    "left_to_save": "Reste à sauvegarder",
+    "target_amount": "Montant cible",
+    "current_amount": "Montant économisé",
+    "start_date": "Date de début",
+    "target_date": "Date cible"
+  },
+  "recurring_transaction_page": {
+    "title_add": "Ajouter une transaction récurrente",
+    "title_edit": "Modifier une transaction récurrente",
+    "repetition": "Répétition",
+    "repetition_type": "Répétitions",
+    "weekday": "Jour de la semaine",
+    "day_of_month": "Jour du mois",
+    "week_of_month": "Semaine du mois (1-5)",
+    "yearly_date": "Se répète chaque année sur",
+    "first_date": "Premier rendez-vous",
+    "repetition_ends": "La répétition se termine",
+    "repeat_until": "Répétez jusqu'à ce que",
+    "nr_of_repetitions": "Nombre de répétitions",
+    "upcoming": "Événements à venir",
+    "next_date": "Suivant",
+    "inactive": "Inactif",
+    "no_upcoming": "Aucune transaction récurrente à venir ^_^"
+  },
   "exchange_rate_page": {
     "relative_to_usd": "Par rapport au USD"
   },
@@ -346,6 +393,11 @@
       "surplus": "Excédent",
       "days_remaining": "Jours restants",
       "savings_summary": "Résumé de l'épargne"
+    },
+    "accounts": {
+      "by_currency": "Par devise",
+      "by_group": "Par groupe",
+      "total": "Total"
     },
     "budget": {
       "spent": "Dépensé",

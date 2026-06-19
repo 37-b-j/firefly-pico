@@ -1,4 +1,6 @@
 {
+  "stop": "Zatrzymywać się",
+  "requests_remaining": "pozostałe żądania",
   "new": "Nowy",
   "save": "Zapisz",
   "delete": "Usuń",
@@ -35,6 +37,11 @@
   "budget": "Budżet",
   "budgets": "Budżety",
   "budget_select": "Wybierz budżet",
+  "piggy_bank": "Skarbonka",
+  "piggy_banks": "Skarbonki",
+  "piggy_bank_select": "Wybierz skarbonkę",
+  "recurring_transaction": "Transakcja cykliczna",
+  "recurring_transactions": "Powtarzające się transakcje",
   "attachment": "Załącznik",
   "attachments": "Załączniki",
   "account": "Rachunek",
@@ -100,12 +107,20 @@
       "pico_backend_url": "Pico backend URL",
       "sync_settings_via_token": "Synchronizuj ustawienia między urządzeniami za pomocą tokenu",
       "days_between_sync": "Liczba dni do pełnej synchronizacji \"Dodatków\"",
+      "enabled_resources": "Włączone zasoby",
+      "enable_budgets": "Włącz budżety",
+      "enable_categories": "Włącz kategorie",
+      "enable_tags": "Włącz tagi",
+      "enable_piggy_banks": "Włącz skarbonki",
+      "enable_recurring_transactions": "Włącz transakcje cykliczne",
       "loaded_data_stats": "Statystyki pobranych danych",
       "account": "Konta",
       "categories": "Kategorie",
       "tags": "Tagi",
       "templates": "Szablony",
       "budgets": "Budżety",
+      "piggy_banks": "Skarbonki",
+      "recurring_transactions": "Powtarzające się transakcje",
       "last_sync": "Ostatnia synchronizacja",
       "verifying": "Weryfikacja...",
       "invalid_endpoint": "Podany punkt końcowy API jest nieprawidłowy.",
@@ -213,7 +228,9 @@
         "expenses_by_category": "Wydatki wg kategorii",
         "transfers_by_tag": "Transfery wg tagów",
         "transfers_by_category": "Transfery wg kategorii",
-        "todo_transactions": "Transakcje to-do"
+        "todo_transactions": "Transakcje to-do",
+        "piggy_banks": "Skarbonki",
+        "recurring_transactions": "Nadchodzące transakcje cykliczne"
       }
     },
     "token": {
@@ -268,6 +285,7 @@
     "required": "Pole jest obowiązkowe"
   },
   "primary": "Podstawowe",
+  "secondary": "Wtórny",
   "classification": "Klasyfikacja",
   "extra": "Dodatkowe",
   "main": "Główny",
@@ -332,6 +350,35 @@
     "interval": "Przedział",
     "type": "Typ budżety",
     "period": "Okres budżetowy"
+  },
+  "piggy_bank_page": {
+    "title_add": "Dodaj skarbonkę",
+    "title_edit": "Edytuj skarbonkę",
+    "saved": "Zapisano",
+    "percent": "Procent",
+    "left_to_save": "Pozostało do zapisania",
+    "target_amount": "Kwota docelowa",
+    "current_amount": "Zaoszczędzona kwota",
+    "start_date": "Data rozpoczęcia",
+    "target_date": "Data docelowa"
+  },
+  "recurring_transaction_page": {
+    "title_add": "Dodaj transakcję cykliczną",
+    "title_edit": "Edytuj transakcję cykliczną",
+    "repetition": "Powtórzenie",
+    "repetition_type": "Powtarza",
+    "weekday": "Dzień tygodnia",
+    "day_of_month": "Dzień miesiąca",
+    "week_of_month": "Tydzień miesiąca (1-5)",
+    "yearly_date": "Powtarza się co roku",
+    "first_date": "Pierwsza randka",
+    "repetition_ends": "Powtarzanie się kończy",
+    "repeat_until": "Powtarzaj aż",
+    "nr_of_repetitions": "Liczba powtórzeń",
+    "upcoming": "Nadchodzące wydarzenia",
+    "next_date": "Następny",
+    "inactive": "Nieaktywny",
+    "no_upcoming": "Brak nadchodzących transakcji cyklicznych ^_^"
   },
   "exchange_rate_page": {
     "relative_to_usd": "W stosunku do USD"

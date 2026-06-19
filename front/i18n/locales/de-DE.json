@@ -1,4 +1,6 @@
 {
+  "stop": "Stoppen",
+  "requests_remaining": "verbleibende Anfragen",
   "new": "Neu",
   "save": "Speichern",
   "delete": "Löschen",
@@ -35,6 +37,11 @@
   "budget": "Budget",
   "budgets": "Budgets",
   "budget_select": "Budget auswählen",
+  "piggy_bank": "Sparschwein",
+  "piggy_banks": "Sparschweine",
+  "piggy_bank_select": "Wählen Sie ein Sparschwein",
+  "recurring_transaction": "Wiederkehrende Transaktion",
+  "recurring_transactions": "Wiederkehrende Transaktionen",
   "attachment": "Anhang",
   "attachments": "Anhänge",
   "account": "Konto",
@@ -100,12 +107,20 @@
       "pico_backend_url": "Pico backend URL",
       "sync_settings_via_token": "Einstellungen mit Token zwischen Geräten synchronisieren",
       "days_between_sync": "Tage zwischen vollständiger Synchronisierung von \"Extras\"",
+      "enabled_resources": "Aktivierte Ressourcen",
+      "enable_budgets": "Budgets aktivieren",
+      "enable_categories": "Kategorien aktivieren",
+      "enable_tags": "Tags aktivieren",
+      "enable_piggy_banks": "Sparschweine aktivieren",
+      "enable_recurring_transactions": "Ermöglichen Sie wiederkehrende Transaktionen",
       "loaded_data_stats": "Geladene Daten Statistik",
       "account": "Konto",
       "categories": "Kategorien",
       "tags": "Tags",
       "templates": "Templates",
       "budgets": "Budgets",
+      "piggy_banks": "Sparschweine",
+      "recurring_transactions": "Wiederkehrende Transaktionen",
       "last_sync": "Letzte Synchronisierung",
       "verifying": "Verifizieren...",
       "invalid_endpoint": "Der angegebene Endpunkt ist nicht korrekt.",
@@ -213,7 +228,9 @@
         "expenses_by_category": "Ausgaben nach Kategorie",
         "transfers_by_tag": "Übertragungen nach Tags",
         "transfers_by_category": "Transfers nach Kategorien",
-        "todo_transactions": "Todo Transaktionen"
+        "todo_transactions": "Todo Transaktionen",
+        "piggy_banks": "Sparschweine",
+        "recurring_transactions": "Kommende wiederkehrende Transaktionen"
       }
     },
     "token": {
@@ -268,6 +285,7 @@
     "required": "Feld ist erforderlich"
   },
   "primary": "Primary",
+  "secondary": "Sekundär",
   "classification": "Klassifizierung",
   "extra": "Extra",
   "main": "Haupt",
@@ -333,6 +351,35 @@
     "type": "Budget Typ",
     "period": "Budget Zeitraum"
   },
+  "piggy_bank_page": {
+    "title_add": "Sparschwein hinzufügen",
+    "title_edit": "Sparschwein bearbeiten",
+    "saved": "Gespeichert",
+    "percent": "Prozent",
+    "left_to_save": "Zum Speichern übrig",
+    "target_amount": "Zielbetrag",
+    "current_amount": "Gesparter Betrag",
+    "start_date": "Startdatum",
+    "target_date": "Zieldatum"
+  },
+  "recurring_transaction_page": {
+    "title_add": "Fügen Sie eine wiederkehrende Transaktion hinzu",
+    "title_edit": "Bearbeiten Sie wiederkehrende Transaktionen",
+    "repetition": "Wiederholung",
+    "repetition_type": "Wiederholt",
+    "weekday": "Wochentag",
+    "day_of_month": "Tag des Monats",
+    "week_of_month": "Woche des Monats (1-5)",
+    "yearly_date": "Wiederholt sich jedes Jahr",
+    "first_date": "Erstes Date",
+    "repetition_ends": "Die Wiederholung endet",
+    "repeat_until": "Wiederholen bis",
+    "nr_of_repetitions": "Anzahl der Wiederholungen",
+    "upcoming": "Kommende Ereignisse",
+    "next_date": "Nächste",
+    "inactive": "Inaktiv",
+    "no_upcoming": "Keine bevorstehenden wiederkehrenden Transaktionen ^_^"
+  },
   "exchange_rate_page": {
     "relative_to_usd": "Beziehung zum USD"
   },
@@ -346,6 +393,11 @@
       "surplus": "Überschuss",
       "days_remaining": "Tage verbleibend",
       "savings_summary": "Ersparnis-Zusammenfassung"
+    },
+    "accounts": {
+      "by_currency": "Nach Währung",
+      "by_group": "Nach Gruppe",
+      "total": "Gesamt"
     },
     "budget": {
       "spent": "Ausgegeben",

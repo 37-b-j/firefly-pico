@@ -1,4 +1,6 @@
 {
+  "stop": "Stop",
+  "requests_remaining": "cereri rămase",
   "new": "Nou",
   "save": "Salvează",
   "delete": "Șterge",
@@ -35,6 +37,11 @@
   "budget": "Buget",
   "budgets": "Bugete",
   "budget_select": "Selectează un buget",
+  "piggy_bank": "Pușculiță",
+  "piggy_banks": "Pușculițe",
+  "piggy_bank_select": "Selectați o pușculiță",
+  "recurring_transaction": "Tranzacție recurentă",
+  "recurring_transactions": "Tranzacții recurente",
   "attachment": "Atașament",
   "attachments": "Atașamente",
   "account": "Cont",
@@ -112,6 +119,8 @@
       "tags": "Etichete",
       "templates": "Șabloane",
       "budgets": "Bugete",
+      "piggy_banks": "Pușculițe",
+      "recurring_transactions": "Tranzacții recurente",
       "last_sync": "Ultima sincronizare",
       "verifying": "Se verifică...",
       "invalid_endpoint": "Endpoint-ul furnizat nu este corect.",
@@ -217,7 +226,11 @@
         "transactions_summary": "Rezumat tranzacții",
         "expenses_by_tag": "Cheltuieli grupate pe etichete",
         "expenses_by_category": "Cheltuieli grupate pe categorii",
-        "todo_transactions": "Tranzacții în așteptare"
+        "transfers_by_tag": "Transferuri prin etichete",
+        "transfers_by_category": "Transferuri pe categorii",
+        "todo_transactions": "Tranzacții în așteptare",
+        "piggy_banks": "Pușculițe",
+        "recurring_transactions": "Tranzacții recurente viitoare"
       }
     },
     "token": {
@@ -272,6 +285,7 @@
     "required": "Câmpul este obligatoriu"
   },
   "primary": "Principale",
+  "secondary": "Secundar",
   "classification": "Clasificare",
   "extra": "Extra",
   "main": "Principal",
@@ -337,6 +351,35 @@
     "type": "Tip buget",
     "period": "Perioadă buget"
   },
+  "piggy_bank_page": {
+    "title_add": "Adăugați pușculița",
+    "title_edit": "Editează pușculița",
+    "saved": "Salvat",
+    "percent": "La sută",
+    "left_to_save": "Rămas pentru a salva",
+    "target_amount": "Suma țintă",
+    "current_amount": "Suma economisită",
+    "start_date": "Data de începere",
+    "target_date": "Data țintă"
+  },
+  "recurring_transaction_page": {
+    "title_add": "Adăugați tranzacție recurentă",
+    "title_edit": "Editați tranzacția recurentă",
+    "repetition": "Repetiţie",
+    "repetition_type": "Se repetă",
+    "weekday": "Ziua săptămânii",
+    "day_of_month": "Ziua lunii",
+    "week_of_month": "Săptămâna lunii (1-5)",
+    "yearly_date": "Se repetă în fiecare an",
+    "first_date": "Prima întâlnire",
+    "repetition_ends": "Repetiția se termină",
+    "repeat_until": "Repetați până când",
+    "nr_of_repetitions": "Numărul de repetări",
+    "upcoming": "Apariții viitoare",
+    "next_date": "Următorul",
+    "inactive": "Inactiv",
+    "no_upcoming": "Nu există tranzacții recurente viitoare ^_^"
+  },
   "exchange_rate_page": {
     "relative_to_usd": "Relativ la USD"
   },
@@ -350,6 +393,11 @@
       "surplus": "Surplus",
       "days_remaining": "Zile rămase",
       "savings_summary": "Rezumat economii"
+    },
+    "accounts": {
+      "by_currency": "După valută",
+      "by_group": "Pe grup",
+      "total": "Total"
     },
     "budget": {
       "spent": "Cheltuit",

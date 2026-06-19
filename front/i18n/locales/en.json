@@ -285,6 +285,7 @@
     "required": "Field is required"
   },
   "primary": "Primary",
+  "secondary": "Secondary",
   "classification": "Classification",
   "extra": "Extra",
   "main": "Main",
