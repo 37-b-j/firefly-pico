@@ -13,16 +13,20 @@
       </van-cell-group>
 
       <van-cell-group inset>
+        <app-field-link :label="$t('settings.setup.enabled_resources')" :icon="TablerIconConstants.settings" @click="navigateTo(RouteConstants.ROUTE_SETTINGS_ENABLED_RESOURCES)" />
+      </van-cell-group>
+
+      <van-cell-group inset>
         <div class="van-cell-group-title">{{ $t('settings.setup.loaded_data_stats') }}</div>
 
         <van-grid :column-num="3">
           <app-config-stat :icon="TablerIconConstants.account" :name="$t('settings.setup.account')" :value="accountsCount" />
-          <app-config-stat :icon="TablerIconConstants.category" :name="$t('settings.setup.categories')" :value="categoriesCount" />
-          <app-config-stat :icon="TablerIconConstants.tag" :name="$t('settings.setup.tags')" :value="tagsCount" />
+          <app-config-stat :icon="TablerIconConstants.category" :name="$t('settings.setup.categories')" :value="categoriesCount" :muted="!profileStore.categoriesEnabled" />
+          <app-config-stat :icon="TablerIconConstants.tag" :name="$t('settings.setup.tags')" :value="tagsCount" :muted="!profileStore.tagsEnabled" />
           <app-config-stat :icon="TablerIconConstants.transactionTemplate" :name="$t('settings.setup.templates')" :value="transactionTemplatesCount" />
-          <app-config-stat :icon="TablerIconConstants.budget" :name="$t('settings.setup.budgets')" :value="budgetsCount" />
-          <app-config-stat :icon="TablerIconConstants.piggyBank" :name="$t('settings.setup.piggy_banks')" :value="piggyBanksCount" />
-          <app-config-stat :icon="TablerIconConstants.recurringTransaction" :name="$t('settings.setup.recurring_transactions')" :value="recurringTransactionsCount" />
+          <app-config-stat :icon="TablerIconConstants.budget" :name="$t('settings.setup.budgets')" :value="budgetsCount" :muted="!profileStore.budgetsEnabled" />
+          <app-config-stat :icon="TablerIconConstants.piggyBank" :name="$t('settings.setup.piggy_banks')" :value="piggyBanksCount" :muted="!profileStore.piggyBanksEnabled" />
+          <app-config-stat :icon="TablerIconConstants.recurringTransaction" :name="$t('settings.setup.recurring_transactions')" :value="recurringTransactionsCount" :muted="!profileStore.recurringTransactionsEnabled" />
           <app-config-stat :icon="TablerIconConstants.lastSync" :name="$t('settings.setup.last_sync')" :value="lastSync" />
         </van-grid>
       </van-cell-group>
@@ -55,6 +59,7 @@ import { get } from 'lodash-es'
 import { rule } from '~/utils/ValidationUtils.js'
 
 const appStore = useAppStore()
+const profileStore = useProfileStore()
 const dashboardStore = useDashboardStore()
 const accountStore = useAccountStore()
 const categoryStore = useCategoryStore()
@@ -68,6 +73,8 @@ const authToken = ref('')
 const picoBackendURL = ref('')
 const syncProfileInDB = ref(true)
 const daysBetweenFullSync = ref(4)
+
+
 
 const accountsCount = computed(() => accountStore.accountList.length)
 const categoriesCount = computed(() => categoryStore.categoryList.length)
@@ -98,6 +105,8 @@ const onSave = async () => {
   appStore.picoBackendURL = picoBackendURL.value
   appStore.syncProfileInDB = syncProfileInDB.value
   appStore.daysBetweenFullSync = daysBetweenFullSync.value
+
+
 
   const userResponse = await new UserRepository().getUser()
   if (!ResponseUtils.isSuccess(userResponse)) {
