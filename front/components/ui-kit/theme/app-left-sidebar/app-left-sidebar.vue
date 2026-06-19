@@ -19,18 +19,18 @@
         <app-left-sidebar-page :label="$t('accounts')" :icon="TablerIconConstants.account" :route="RouteConstants.ROUTE_ACCOUNT_LIST" />
       </div>
 
-      <div class="nav-section">
+      <div v-if="profileStore.tagsEnabled || profileStore.categoriesEnabled" class="nav-section">
         <div class="section-label">{{ $t('classifications') }}</div>
-        <app-left-sidebar-page :label="$t('tags')" :icon="TablerIconConstants.tag" :route="RouteConstants.ROUTE_TAG_LIST" />
-        <app-left-sidebar-page :label="$t('categories')" :icon="TablerIconConstants.category" :route="RouteConstants.ROUTE_CATEGORY_LIST" />
+        <app-left-sidebar-page v-if="profileStore.tagsEnabled" :label="$t('tags')" :icon="TablerIconConstants.tag" :route="RouteConstants.ROUTE_TAG_LIST" />
+        <app-left-sidebar-page v-if="profileStore.categoriesEnabled" :label="$t('categories')" :icon="TablerIconConstants.category" :route="RouteConstants.ROUTE_CATEGORY_LIST" />
       </div>
 
       <div class="nav-section">
         <div class="section-label">{{ $t('secondary') }}</div>
         <app-left-sidebar-page :label="$t('templates')" :icon="TablerIconConstants.transactionTemplate" :route="RouteConstants.ROUTE_TRANSACTION_TEMPLATE_LIST" />
-        <app-left-sidebar-page :label="$t('budgets')" :icon="TablerIconConstants.budget" :route="RouteConstants.ROUTE_BUDGET_LIST" />
-        <app-left-sidebar-page :label="$t('piggy_banks')" :icon="TablerIconConstants.piggyBank" :route="RouteConstants.ROUTE_PIGGY_BANK_LIST" />
-        <app-left-sidebar-page :label="$t('recurring_transactions')" :icon="TablerIconConstants.recurringTransaction" :route="RouteConstants.ROUTE_RECURRING_TRANSACTION_LIST" />
+        <app-left-sidebar-page v-if="profileStore.budgetsEnabled" :label="$t('budgets')" :icon="TablerIconConstants.budget" :route="RouteConstants.ROUTE_BUDGET_LIST" />
+        <app-left-sidebar-page v-if="profileStore.piggyBanksEnabled" :label="$t('piggy_banks')" :icon="TablerIconConstants.piggyBank" :route="RouteConstants.ROUTE_PIGGY_BANK_LIST" />
+        <app-left-sidebar-page v-if="profileStore.recurringTransactionsEnabled" :label="$t('recurring_transactions')" :icon="TablerIconConstants.recurringTransaction" :route="RouteConstants.ROUTE_RECURRING_TRANSACTION_LIST" />
       </div>
 
       <div class="nav-section">
@@ -58,11 +58,9 @@
 import { useProfileStore } from '~/stores/profileStore.js'
 import RouteConstants from '~/constants/RouteConstants.js'
 import TablerIconConstants from '~/constants/TablerIconConstants.js'
-import { animateBottomToolbarAddButton } from '~/utils/AnimationUtils.js'
 
 const profileStore = useProfileStore()
 const appStore = useAppStore()
-const route = useRoute()
 
 const onChangeTheme = () => {
   profileStore.darkTheme = !profileStore.darkTheme

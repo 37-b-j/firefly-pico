@@ -6,15 +6,15 @@
       <div class="van-cell-group-title">{{ $t('primary') }}:</div>
       <app-field-link :label="$t('accounts')" :icon="TablerIconConstants.account" @click="onGoToAccountsList" />
       <app-field-link :label="$t('template')" :icon="TablerIconConstants.transactionTemplate" @click="onGoToTransactionTemplatesList" />
-      <app-field-link :label="$t('budgets')" :icon="TablerIconConstants.budget" @click="onGoToBudgetsList" />
-      <app-field-link :label="$t('piggy_banks')" :icon="TablerIconConstants.piggyBank" @click="onGoToPiggyBanksList" />
-      <app-field-link :label="$t('recurring_transactions')" :icon="TablerIconConstants.recurringTransaction" @click="onGoToRecurringTransactionsList" />
+      <app-field-link v-if="profileStore.budgetsEnabled" :label="$t('budgets')" :icon="TablerIconConstants.budget" @click="onGoToBudgetsList" />
+      <app-field-link v-if="profileStore.piggyBanksEnabled" :label="$t('piggy_banks')" :icon="TablerIconConstants.piggyBank" @click="onGoToPiggyBanksList" />
+      <app-field-link v-if="profileStore.recurringTransactionsEnabled" :label="$t('recurring_transactions')" :icon="TablerIconConstants.recurringTransaction" @click="onGoToRecurringTransactionsList" />
     </van-cell-group>
 
-    <van-cell-group inset style="overflow: auto">
+    <van-cell-group v-if="profileStore.tagsEnabled || profileStore.categoriesEnabled" inset style="overflow: auto">
       <div class="van-cell-group-title">{{ $t('classification') }}:</div>
-      <app-field-link :label="$t('tags')" :icon="TablerIconConstants.tag" @click="onGoToTagsList" />
-      <app-field-link :label="$t('categories')" :icon="TablerIconConstants.category" @click="onGoToCategoriesList" />
+      <app-field-link v-if="profileStore.tagsEnabled" :label="$t('tags')" :icon="TablerIconConstants.tag" @click="onGoToTagsList" />
+      <app-field-link v-if="profileStore.categoriesEnabled" :label="$t('categories')" :icon="TablerIconConstants.category" @click="onGoToCategoriesList" />
     </van-cell-group>
 
     <van-cell-group inset style="overflow: auto">
@@ -31,10 +31,9 @@ import RouteConstants from '~/constants/RouteConstants'
 import { useToolbar } from '~/composables/useToolbar'
 import TablerIconConstants from '~/constants/TablerIconConstants'
 import { onMounted } from 'vue'
-import { useActionSheet } from '~/composables/useActionSheet.js'
 
-const onNavigateToCalendar = async () => await navigateTo(RouteConstants.ROUTE_CALENDAR)
-const onNavigateToTransactionTemplate = async () => await navigateTo(RouteConstants.ROUTE_TRANSACTION_TEMPLATE_LIST)
+const profileStore = useProfileStore()
+
 const onGoToAccountsList = async () => await navigateTo(RouteConstants.ROUTE_ACCOUNT_LIST)
 const onGoToCategoriesList = async () => await navigateTo(RouteConstants.ROUTE_CATEGORY_LIST)
 const onGoToTagsList = async () => await navigateTo(RouteConstants.ROUTE_TAG_LIST)
