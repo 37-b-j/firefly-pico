@@ -67,7 +67,8 @@ import {
   IconFilter2,
   IconSearch,
   IconPigMoney,
-  IconRepeat
+  IconRepeat,
+  IconCalendarRepeat,
 } from '@tabler/icons-vue'
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -138,6 +139,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('IconSearch', IconSearch)
   nuxtApp.vueApp.component('IconPigMoney', IconPigMoney)
   nuxtApp.vueApp.component('IconRepeat', IconRepeat)
+  nuxtApp.vueApp.component('IconCalendarRepeat', IconCalendarRepeat)
 
   // for (let iconName in tablerIcons) {
   //   nuxtApp.vueApp.component(iconName, tablerIcons[iconName])

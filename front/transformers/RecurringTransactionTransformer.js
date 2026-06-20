@@ -136,20 +136,23 @@ export default class RecurringTransactionTransformer extends ApiTransformer {
     const typeCode = get(data, 'type.fireflyCode')
     const assetAccount = typeCode === Transaction.types.income.fireflyCode ? accountDestination : accountSource
     const currencyId = get(assetAccount, 'attributes.currency_id')
+    const categoryId = get(data, 'category.id')
+    const budgetId = get(data, 'budget.id')
 
     let transaction = {
       description: get(data, 'description') || get(data, 'title', ''),
       amount: get(data, 'amount'),
       source_id: get(accountSource, 'id'),
-      destination_id: get(accountDestination, 'id'),
-      category_id: get(data, 'category.id'),
-      budget_id: get(data, 'budget.id'),
+      destination_id: accountDestination?.id ?? null,
+      // ...(accountDestination ? { destination_id: get(accountDestination) } : {}),
+      ...(categoryId ? { category_id: categoryId } : {}),
+      ...(budgetId ? { budget_id: budgetId } : {}),
     }
+
     let tags = (get(data, 'tags') ?? []).map((tag) => Tag.getDisplayNameEllipsized(tag))
     if (tags.length > 0) {
       transaction.tags = tags
     }
-
 
     if (currencyId) {
       transaction.currency_id = currencyId
@@ -184,11 +187,7 @@ export default class RecurringTransactionTransformer extends ApiTransformer {
     if (repetitionTypeCode === RecurringTransaction.repetitionTypes.yearly.fireflyCode && originalMoment) {
       originalMoment = DateUtils.dateToString(DateUtils.autoToDate(originalMoment)) ?? originalMoment
     }
-    const isRepetitionUnchanged =
-      isUpdate &&
-      Boolean(originalRepetition) &&
-      get(originalRepetition, 'type') === repetitionTypeCode &&
-      originalMoment === moment
+    const isRepetitionUnchanged = isUpdate && Boolean(originalRepetition) && get(originalRepetition, 'type') === repetitionTypeCode && originalMoment === moment
 
     if (!isRepetitionUnchanged) {
       result.repetitions = [repetition]

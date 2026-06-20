@@ -10,7 +10,7 @@ export const icons = {
   tag: 'IconTag',
   budget: 'IconBasket',
   piggyBank: 'IconPigMoney',
-  recurringTransaction: 'IconRepeat',
+  recurringTransaction: 'IconCalendarRepeat',
   attachment: 'IconPhoto',
   budgetLimit: 'IconCalendarDollar',
   currency: 'IconCoin',

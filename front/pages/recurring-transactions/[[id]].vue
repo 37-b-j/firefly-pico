@@ -10,7 +10,7 @@
       <app-card-info v-if="itemId">
         <template v-if="upcomingDates.length > 0">
           <div class="van-cell-group-title">{{ $t('recurring_transaction_page.upcoming') }}:</div>
-          <div class="px-3 pb-15 flex-column text-size-12">
+          <div class="px-3 display-flex gap-2 flex-wrap text-size-12">
             <div v-for="date in upcomingDates" :key="date">{{ date }}</div>
           </div>
         </template>
@@ -40,7 +40,7 @@
         <budget-select v-model="budget" />
         <tag-select v-model="tags" />
 
-        <app-field v-model="description" name="description" :label="$t('description')" rows="1" autosize :icon="TablerIconConstants.fieldText1" :rules="[rule.required()]" />
+        <app-field v-model="description" name="description" :label="$t('description')" rows="1" autosize :icon="TablerIconConstants.fieldText1" :rules="[rule.required()]" required />
       </van-cell-group>
 
       <van-cell-group inset>
