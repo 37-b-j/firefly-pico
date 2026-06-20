@@ -9,13 +9,21 @@
         <div
           v-for="row in upcomingList"
           :key="`${row.recurringTransaction.id}-${row.date}`"
-          class="flex-center-vertical gap-1 my-1 cursor-pointer"
+          class="flex-center-vertical gap-2 my-1 cursor-pointer"
           @click="onGoToRecurringTransaction(row.recurringTransaction)"
         >
-          <app-icon :icon="getIcon(row)" :size="20" />
-          <span class="text-size-12 font-weight-400 flex-1">{{ ellipsizeText(row.label, 25) }}</span>
-          <div class="tag-gray list-item-subtitle text-size-12">{{ row.dateFormatted }}</div>
-          <span class="text-size-12 font-weight-400" :class="row.amountClass" style="min-width: 70px; text-align: right">{{ row.amount }} {{ row.currencySymbol }}</span>
+          <app-icon :icon="getIcon(row)" :size="24" />
+
+          <div class="display-flex flex-column flex-1">
+            <span class="text-size-14 font-500 flex-1">{{ ellipsizeText(row.label, 25) }}</span>
+            <div class="flex-center-vertical gap-2 text-muted">
+              <div class="font-400 text-size-11">{{ row.timeAgo }}</div>
+              <div class="font-400 text-size-11"></div>
+              <div class="font-400 text-size-11">{{ row.dateFormatted }}</div>
+            </div>
+          </div>
+
+          <span class="text-size-13 font-weight-600" :class="row.amountClass" style="min-width: 70px; text-align: right">{{ row.amount }} {{ row.currencySymbol }}</span>
         </div>
       </div>
     </template>
@@ -28,9 +36,10 @@ import RecurringTransaction from '~/models/RecurringTransaction.js'
 import Transaction from '~/models/Transaction.js'
 import DateUtils from '~/utils/DateUtils.js'
 import { computed } from 'vue'
-import { get } from 'lodash-es'
+import { capitalize, get } from 'lodash-es'
 import TablerIconConstants from '~/constants/TablerIconConstants.js'
 import { useRecurringTransactionStore } from '~/stores/recurringTransactionStore'
+import { formatTimeAgo } from '@vueuse/core'
 
 const recurringTransactionStore = useRecurringTransactionStore()
 
@@ -58,6 +67,7 @@ const upcomingList = computed(() => {
           recurringTransaction: recurringTransaction,
           label: RecurringTransaction.getDisplayName(recurringTransaction),
           date: date,
+          timeAgo: capitalize(formatTimeAgo(date)),
           dateFormatted: DateUtils.dateToUI(date),
           amount: formatNumberForDashboard(RecurringTransaction.getAmount(recurringTransaction)),
           currencySymbol: RecurringTransaction.getCurrencySymbol(recurringTransaction),
@@ -65,7 +75,7 @@ const upcomingList = computed(() => {
         }
       })
     })
-  return rows.sort((a, b) => a.date - b.date).slice(0, 10)
+  return rows.sort((a, b) => a.date - b.date).slice(0, 6)
 })
 
 const hasUpcoming = computed(() => upcomingList.value.length > 0)

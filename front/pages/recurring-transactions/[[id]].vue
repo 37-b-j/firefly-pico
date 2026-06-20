@@ -10,8 +10,8 @@
       <app-card-info v-if="itemId">
         <template v-if="upcomingDates.length > 0">
           <div class="van-cell-group-title">{{ $t('recurring_transaction_page.upcoming') }}:</div>
-          <div class="px-3 display-flex gap-2 flex-wrap text-size-12">
-            <div v-for="date in upcomingDates" :key="date">{{ date }}</div>
+          <div class="px-3 display-flex gap-1 flex-wrap text-size-12">
+            <div v-for="date in upcomingDates" class="tag-gray" :key="date">{{ date }}</div>
           </div>
         </template>
         <app-field-link :label="$t('show_transactions')" :icon="TablerIconConstants.transaction" @click="onNavigateToTransactionsList" />
