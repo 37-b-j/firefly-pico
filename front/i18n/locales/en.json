@@ -206,7 +206,8 @@
         "default_category": "Default category",
         "default_tags": "Default tags (only preselected)",
         "auto_tags": "Auto tags (appended after creation)",
-        "foreign_currency": "Foreign currency for expenses"
+        "foreign_currency": "Foreign currency for expenses",
+        "set_default_time_to_midnight": "Set default time to 00:00"
       }
     },
     "about_entry": "About",

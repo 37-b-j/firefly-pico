@@ -206,7 +206,8 @@
         "default_category": "Domyślna kategoria",
         "default_tags": "Tagi domyślne (tylko te zaznaczone domyślnie)",
         "auto_tags": "Tagi automatyczne (dodawane po utworzeniu)",
-        "foreign_currency": "Waluta obca na pokrycie wydatków"
+        "foreign_currency": "Waluta obca na pokrycie wydatków",
+        "set_default_time_to_midnight": "Ustaw domyślną godzinę na 00:00"
       }
     },
     "about_entry": "O aplikacji",

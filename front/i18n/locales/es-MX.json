@@ -206,7 +206,8 @@
         "default_category": "Categoría por defecto",
         "default_tags": "Etiquetas por defecto (solo preseleccionadas)",
         "auto_tags": "Etiquetas automáticas (agregadas después de crear)",
-        "foreign_currency": "Moneda extranjera para gastos"
+        "foreign_currency": "Moneda extranjera para gastos",
+        "set_default_time_to_midnight": "Establecer la hora predeterminada en 00:00"
       }
     },
     "about_entry": "Acerca de",

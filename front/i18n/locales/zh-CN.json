@@ -191,7 +191,8 @@
         "default_category": "默认类别",
         "default_tags": "默认标签（仅预选）",
         "auto_tags": "自动标签（创建后附加）",
-        "foreign_currency": "支出的外币"
+        "foreign_currency": "支出的外币",
+        "set_default_time_to_midnight": "将默认时间设为 00:00"
       }
     },
     "token": {

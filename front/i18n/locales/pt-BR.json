@@ -206,7 +206,8 @@
         "default_category": "Categoria padrão",
         "default_tags": "Tags padrão (apenas pré-selecionadas)",
         "auto_tags": "Tags automáticas (adicionadas após criação)",
-        "foreign_currency": "Moeda estrangeira para despesas"
+        "foreign_currency": "Moeda estrangeira para despesas",
+        "set_default_time_to_midnight": "Definir hora padrão como 00:00"
       }
     },
     "about_entry": "Sobre",

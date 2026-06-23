@@ -206,7 +206,8 @@
         "default_category": "Standard-Kategorie",
         "default_tags": "Standard Tags (nur vorselektierte)",
         "auto_tags": "Auto Tags (nach Erzeugung anfügen)",
-        "foreign_currency": "Ausländische Währung für Ausgaben"
+        "foreign_currency": "Ausländische Währung für Ausgaben",
+        "set_default_time_to_midnight": "Standardzeit auf 00:00 setzen"
       }
     },
     "about_entry": "Über",
