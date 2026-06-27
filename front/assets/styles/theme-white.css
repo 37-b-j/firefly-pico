@@ -843,10 +843,9 @@ body {
 .applied-filters-container {
     background: white;
 
-    margin-top: 0px;
-    /*margin-top: 45px;*/
+    margin: 0px 40px 5px;
+    border-radius: 10px;
 
-    /*margin-top: -5px;*/
     padding: 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -1254,12 +1253,18 @@ img, svg {
 
 .desktop-content {
     flex: 1;
+    min-width: 0;
+    overflow-x: hidden;
     padding-inline-start: 16.25rem;
 }
 
 .app-top-toolbar-desktop {
     display: flex;
     align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    width: calc(100% - 30px);
+    min-width: 0;
     padding: 15px;
     margin: 15px;
     background: var(--white);
@@ -1268,6 +1273,17 @@ img, svg {
     top: 10px;
     z-index: 2;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.app-top-toolbar-desktop > .flex-1 {
+    min-width: 0;
+}
+
+.app-top-toolbar-desktop .app-toolbar-title,
+.app-top-toolbar-desktop .app-toolbar-subtitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .app-bottom-toolbar-item {
@@ -1372,6 +1388,26 @@ img, svg {
     cursor: pointer;
 }
 
+.app-toast {
+    cursor: pointer;
+}
+
+@media (min-width: 801px) and (hover: hover) and (pointer: fine) {
+    .van-popup.van-notify.app-toast {
+        top: auto;
+        bottom: 28px;
+        left: 28px;
+        right: auto;
+        justify-content: flex-start;
+        width: min(360px, calc(100vw - 56px));
+        min-height: 44px;
+        padding: 12px 14px;
+        border-radius: 8px;
+        box-shadow: rgba(15, 23, 42, 0.18) 0 10px 30px;
+        text-align: left;
+    }
+}
+
 
 /*--------------------------------*/
 
@@ -1469,6 +1505,9 @@ img, svg {
 
 /*--------------------------------*/
 
+.app-left-sidebar {
+    z-index: 2001;
+}
 
 body {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -1481,5 +1520,4 @@ body {
 .app-field-dropdown .van-popover__wrapper {
     width: 100%;
 }
-
 
