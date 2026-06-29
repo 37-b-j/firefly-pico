@@ -24,6 +24,8 @@ import TransactionTransformer from '~/transformers/TransactionTransformer'
 import Tag from '~/models/Tag.js'
 import DateUtils from '~/utils/DateUtils.js'
 import { getExcludedTransactionFilters } from '~/utils/DashboardUtils.js'
+import TransactionFilterUtils from '~/utils/TransactionFilterUtils.js'
+import { useListFilters } from '~/composables/useListFilters.js'
 
 export const useDashboardStore = defineStore('dashboard', () => {
   const accountStore = useAccountStore()
@@ -110,13 +112,17 @@ export const useDashboardStore = defineStore('dashboard', () => {
       return
     }
 
-    let filters = [
-      {
-        field: 'query',
-        value: `tag_is:"${Tag.getDisplayNameEllipsized(tagTodo)}"`,
-      },
-    ]
-    let list = await new TransactionRepository().searchTransaction({ filters })
+    const { filters, filtersBackendList } = useListFilters({
+      filterDefinitions: Object.values(TransactionFilterUtils.filters),
+    })
+
+    filters.value = {
+      ...TransactionFilterUtils.getPredefinedFilters(),
+      tag: tagTodo,
+    }
+    const requestFilters = [{ field: 'query', value: filtersBackendList.value.join(' ') }]
+
+    let list = await new TransactionRepository().searchTransaction({ filters: requestFilters })
     transactionsWithTodo.value = TransactionTransformer.transformFromApiList(list?.data ?? [])
   }
 
