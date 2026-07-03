@@ -80,6 +80,8 @@ export const useProfileStore = defineStore('profile', () => {
     excludedAccountsList: useLocalStorage('excludedAccountsList', []),
     excludedCategoriesList: useLocalStorage('excludedCategoriesList', []),
     excludedTagsList: useLocalStorage('excludedTagsList', []),
+    netWorthHistoryMonths: useLocalStorage('netWorthHistoryMonths', 6),
+    netWorthQueryDay: useLocalStorage('netWorthQueryDay', 1),
   })
 
   // Getters

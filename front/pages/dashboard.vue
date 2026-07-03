@@ -41,6 +41,7 @@ import DashboardCategoryTotalsTransfer from '~/components/dashboard/dashboard-ca
 import DashboardTodoTransactions from '~/components/dashboard/dashboard-todo-transactions/dashboard-todo-transactions.vue'
 import DashboardPiggyBanks from '~/components/dashboard/dashboard-piggy-banks/dashboard-piggy-banks.vue'
 import DashboardRecurringTransactions from '~/components/dashboard/dashboard-recurring-transactions/dashboard-recurring-transactions.vue'
+import DashboardNetWorth from '~/components/dashboard/dashboard-net-worth/dashboard-net-worth.vue'
 
 import { useDashboardStore } from '~/stores/dashboardStore'
 
@@ -61,6 +62,7 @@ const cardComponents = {
   [dashboardCard.todoTransactions.code]: DashboardTodoTransactions,
   [dashboardCard.piggyBanks.code]: DashboardPiggyBanks,
   [dashboardCard.recurringTransactions.code]: DashboardRecurringTransactions,
+  [dashboardCard.netWorth.code]: DashboardNetWorth,
 }
 
 const isCardEnabled = (cardCode) => {

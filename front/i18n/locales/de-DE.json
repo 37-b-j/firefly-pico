@@ -219,6 +219,8 @@
       "config": "Konfiguration",
       "show_empty_accounts": "Zeige Konti mit Betrag 0",
       "show_decimal_places": "Zeige Dezimalstellen",
+      "net_worth_months": "Eigenkapital-Historie (Monate)",
+      "net_worth_query_day": "Abfragetag des Monats",
       "transaction_exclusion": "Transaktions-Ausschluss",
       "cards": {
         "accounts_summary": "Konit Zusammenfassung",
@@ -230,7 +232,8 @@
         "transfers_by_category": "Transfers nach Kategorien",
         "todo_transactions": "Todo Transaktionen",
         "piggy_banks": "Sparschweine",
-        "recurring_transactions": "Kommende wiederkehrende Transaktionen"
+        "recurring_transactions": "Kommende wiederkehrende Transaktionen",
+        "net_worth": "Eigenkapitalentwicklung"
       }
     },
     "token": {
@@ -416,7 +419,10 @@
     },
     "expenses_by_categories": "Ausgaben nach Kategorien",
     "transfers_by_categories": "Überträge nach Kategorien",
-    "configure_cards": "Karten konfigurieren"
+    "configure_cards": "Karten konfigurieren",
+    "net_worth": {
+      "title": "Eigenkapitalentwicklung"
+    }
   },
   "profile_page": {
     "title": "Profil Liste",
