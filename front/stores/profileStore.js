@@ -80,6 +80,7 @@ export const useProfileStore = defineStore('profile', () => {
     excludedAccountsList: useLocalStorage('excludedAccountsList', []),
     excludedCategoriesList: useLocalStorage('excludedCategoriesList', []),
     excludedTagsList: useLocalStorage('excludedTagsList', []),
+    dashboardNetAmountMode: useLocalStorage('dashboardNetAmountMode', false),
   })
 
   // Getters

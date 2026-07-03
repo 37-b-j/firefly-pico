@@ -11,6 +11,7 @@
         <div class="van-cell-group-title mb-0">{{ $t('settings.dashboard.config') }}:</div>
         <app-boolean v-model="areEmptyAccountsVisible" :label="$t('settings.dashboard.show_empty_accounts')" />
         <app-boolean v-model="showDecimal" :label="$t('settings.dashboard.show_decimal_places')" />
+        <app-boolean v-model="dashboardNetAmountMode" :label="$t('settings.dashboard.net_amount_mode')" />
 
         <app-select
             v-model="firstDayOfMonth"
@@ -53,6 +54,7 @@ const showDecimal = ref(false)
 const excludedAccountsList = ref([])
 const excludedCategoriesList = ref([])
 const excludedTagsList = ref([])
+const dashboardNetAmountMode = ref(false)
 
 const firstDayOfMonth = ref(null)
 const firstDayOfMonthList = [...Array(27).keys()].map((item) => item + 1)
@@ -64,6 +66,7 @@ const syncedSettings = [
   { store: profileStore, path: 'dashboard.excludedAccountsList', ref: excludedAccountsList },
   { store: profileStore, path: 'dashboard.excludedCategoriesList', ref: excludedCategoriesList },
   { store: profileStore, path: 'dashboard.excludedTagsList', ref: excludedTagsList },
+  { store: profileStore, path: 'dashboard.dashboardNetAmountMode', ref: dashboardNetAmountMode },
   { store: profileStore, path: 'dashboard.firstDayOfMonth', ref: firstDayOfMonth },
 
 ]

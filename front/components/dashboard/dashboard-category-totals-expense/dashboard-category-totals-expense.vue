@@ -36,13 +36,15 @@ import { useActionSheet } from '~/composables/useActionSheet.js'
 
 import { useCategoryStore } from '~/stores/categoryStore'
 import { useDashboardStore } from '~/stores/dashboardStore'
+import { useProfileStore } from '~/stores/profileStore.js'
 
 const categoryStore = useCategoryStore()
 const dashboardStore = useDashboardStore()
+const profileStore = useProfileStore()
 const { t } = useI18n()
 
 const barsList = computed(() => {
-  const dictionary = dashboardStore.dashboardExpensesByCategory
+  const dictionary = profileStore.dashboard.dashboardNetAmountMode ? dashboardStore.dashboardNetByCategory : dashboardStore.dashboardExpensesByCategory
 
   const maxAmount = Math.max(...Object.values(dictionary))
 
@@ -81,12 +83,13 @@ const onGoToTransactions = async (category) => {
   const startDate = DateUtils.dateToString(dashboardStore.dashboardDateStart)
   const endDate = DateUtils.dateToString(dashboardStore.dashboardDateEnd)
   const excludedUrl = getExcludedTransactionUrl()
+  const typeParam = profileStore.dashboard.dashboardNetAmountMode ? '' : `&type=${Transaction.types.expense.code}`
 
   if (!category) {
-    await navigateTo(`${RouteConstants.ROUTE_TRANSACTION_LIST}?without_category=true&date_start=${startDate}&date_end=${endDate}&type=${Transaction.types.expense.code}${excludedUrl}`)
+    await navigateTo(`${RouteConstants.ROUTE_TRANSACTION_LIST}?without_category=true&date_start=${startDate}&date_end=${endDate}${typeParam}${excludedUrl}`)
     return
   }
 
-  await navigateTo(`${RouteConstants.ROUTE_TRANSACTION_LIST}?category_id=${category.id}&date_start=${startDate}&date_end=${endDate}&type=${Transaction.types.expense.code}${excludedUrl}`)
+  await navigateTo(`${RouteConstants.ROUTE_TRANSACTION_LIST}?category_id=${category.id}&date_start=${startDate}&date_end=${endDate}${typeParam}${excludedUrl}`)
 }
 </script>

@@ -219,6 +219,7 @@
       "config": "Konfiguration",
       "show_empty_accounts": "Zeige Konti mit Betrag 0",
       "show_decimal_places": "Zeige Dezimalstellen",
+      "net_amount_mode": "Netto-Modus (Ausgaben minus Einnahmen)",
       "transaction_exclusion": "Transaktions-Ausschluss",
       "cards": {
         "accounts_summary": "Konit Zusammenfassung",

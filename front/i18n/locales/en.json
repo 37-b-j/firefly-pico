@@ -219,6 +219,7 @@
       "config": "Config",
       "show_empty_accounts": "Show accounts with 0 amount",
       "show_decimal_places": "Show decimal places",
+      "net_amount_mode": "Net amount mode (expenses minus income)",
       "transaction_exclusion": "Transaction exclusion",
       "cards": {
         "accounts_summary": "Accounts summary",

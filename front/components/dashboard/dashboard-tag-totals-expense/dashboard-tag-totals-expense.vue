@@ -38,9 +38,11 @@ import Tag from '~/models/Tag.js'
 import TablerIconConstants from '~/constants/TablerIconConstants.js'
 import { getExcludedTransactionUrl } from '~/utils/DashboardUtils.js'
 import { useActionSheet } from '~/composables/useActionSheet.js'
+import { useProfileStore } from '~/stores/profileStore.js'
 
 const dashboardStore = useDashboardStore()
 const tagStore = useTagStore()
+const profileStore = useProfileStore()
 const { t } = useI18n()
 
 const onToggleTagMode = () => {
@@ -50,7 +52,7 @@ const onToggleTagMode = () => {
 const tagModeDisplayName = computed(() => (dashboardStore.tagsWidgetModeOnlyRootTag ? t('dashboard.expenses_by_tags.one_root_tag') : t('dashboard.expenses_by_tags.all_tags')))
 
 const barsList = computed(() => {
-  const tagTotalDictionary = dashboardStore.dashboardExpensesByTag
+  const tagTotalDictionary = profileStore.dashboard.dashboardNetAmountMode ? dashboardStore.dashboardNetByTag : dashboardStore.dashboardExpensesByTag
 
   const maxAmount = Math.max(...Object.values(tagTotalDictionary))
 
@@ -87,12 +89,13 @@ const onGoToTransactions = async (tag) => {
   const startDate = DateUtils.dateToString(dashboardStore.dashboardDateStart)
   const endDate = DateUtils.dateToString(dashboardStore.dashboardDateEnd)
   const excludedUrl = getExcludedTransactionUrl()
+  const typeParam = profileStore.dashboard.dashboardNetAmountMode ? '' : `&type=${Transaction.types.expense.code}`
 
   if (!tag) {
-    await navigateTo(`${RouteConstants.ROUTE_TRANSACTION_LIST}?without_tag=true&date_start=${startDate}&date_end=${endDate}&type=${Transaction.types.expense.code}${excludedUrl}`)
+    await navigateTo(`${RouteConstants.ROUTE_TRANSACTION_LIST}?without_tag=true&date_start=${startDate}&date_end=${endDate}${typeParam}${excludedUrl}`)
     return
   }
 
-  await navigateTo(`${RouteConstants.ROUTE_TRANSACTION_LIST}?tag_id=${tag.id}&date_start=${startDate}&date_end=${endDate}&type=${Transaction.types.expense.code}${excludedUrl}`)
+  await navigateTo(`${RouteConstants.ROUTE_TRANSACTION_LIST}?tag_id=${tag.id}&date_start=${startDate}&date_end=${endDate}${typeParam}${excludedUrl}`)
 }
 </script>
