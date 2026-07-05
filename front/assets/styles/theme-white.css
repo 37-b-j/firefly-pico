@@ -784,7 +784,8 @@ body {
 
 .transaction-list-item-todo {
     background: #fffbfc;
-    border: 2px solid pink;
+    border: 2px solid pink !important;
+    border-radius: 6px;
 }
 
 .van-cell {
