@@ -14,7 +14,7 @@ The repo is split into:
 - `docs/`: images and public-facing documentation assets.
 
 ## Working Style
-
+- Always make the least necessary changes. Keep code as short as possible, with the clearest, and easiest-to-read implementation.
 - Read the nearby code before editing. This project has strong local patterns; follow them instead of introducing new architecture.
 - Keep changes small and directly connected to the request. Avoid drive-by refactors, formatting churn, or dependency updates unless they are part of the task.
 - Protect user work. Check `git status --short` before larger edits and never overwrite unrelated modified files.
