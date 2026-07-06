@@ -6,6 +6,8 @@ Guidance for AI coding agents working in this repository.
 
 Firefly Pico is a mobile-first Firefly III companion app for fast transaction entry, dashboards, icons, tags, templates, profiles, piggy banks, recurring transactions, and assistant-assisted expense logging.
 
+**Environment Requirements:** Node.js 18+ and PHP 8.2+.
+
 The repo is split into:
 
 - `front/`: Nuxt/Vue single-page PWA. Uses Vue 3 script setup, Pinia, Vant, Tabler icons, VueUse, i18n, SVGO, and local UI-kit components.
@@ -19,6 +21,7 @@ The repo is split into:
 - Keep changes small and directly connected to the request. Avoid drive-by refactors, formatting churn, or dependency updates unless they are part of the task.
 - Protect user work. Check `git status --short` before larger edits and never overwrite unrelated modified files.
 - Prefer existing helpers, constants, repositories, stores, transformers, and UI-kit components over one-off logic.
+- Follow naming conventions: `PascalCase` for Vue components (`MyComponent.vue`) and PHP classes, and `camelCase` for JS/TS composables and utilities (`useMyFeature.js`).
 - When behavior touches both `front/` and `back/`, trace the full flow: route constant, page/component, repository, backend route/controller/model/migration if applicable.
 - Validate the narrowest thing that proves the change, then broaden only when risk warrants it.
 
@@ -56,7 +59,7 @@ Use the command that matches the scope of the change. Do not run expensive Docke
 
 ## Front-End Notes
 
-- Nuxt is configured as `ssr: false`; treat the app as a client-side PWA.
+- Nuxt is configured as `ssr: false`; treat the app as a purely client-side PWA. Do not create or use Nuxt `server/api/` routes. All backend communication must go through the Laravel API.
 - Components are auto-imported from `front/components` with `pathPrefix: false`; global components live under `front/components/global`.
 - Pages live in `front/pages`; routes should be mirrored through `front/constants/RouteConstants.js` where app navigation depends on constants.
 - Data access goes through classes in `front/repository`, usually extending `BaseRepository`.
