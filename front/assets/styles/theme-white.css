@@ -1512,6 +1512,24 @@ img, svg {
     letter-spacing: 0.05em;
 }
 
+.section-label-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 0 0 0.75rem;
+    border: 0;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+}
+
+.section-label-toggle svg {
+    flex-shrink: 0;
+}
+
 .mt-auto {
     margin-top: auto;
 }
@@ -1536,4 +1554,3 @@ body {
 .app-field-dropdown .van-popover__wrapper {
     width: 100%;
 }
-
