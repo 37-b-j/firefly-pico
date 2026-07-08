@@ -222,6 +222,8 @@
       "config": "Config",
       "show_empty_accounts": "Show accounts with 0 amount",
       "show_decimal_places": "Show decimal places",
+      "net_worth_months": "Net worth history (months)",
+      "net_worth_query_day": "Net worth query day of month",
       "transaction_exclusion": "Transaction exclusion",
       "cards": {
         "accounts_summary": "Accounts summary",
@@ -233,6 +235,7 @@
         "transfers_by_category": "Transfers by categories",
         "todo_transactions": "Todo transactions",
         "piggy_banks": "Piggy banks",
+        "net_worth": "Net worth evolution",
         "recurring_transactions": "Upcoming transactions"
       }
     },
