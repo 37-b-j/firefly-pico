@@ -21,6 +21,26 @@
             :columns="4"
             :has-search="false"
         />
+
+        <app-select
+            v-model="netWorthHistoryMonths"
+            v-model:show-dropdown="isDropdownNetWorthMonthsVisible"
+            :label="$t('settings.dashboard.net_worth_months')"
+            :popup-title="$t('settings.dashboard.net_worth_months')"
+            :list="netWorthMonthsList"
+            :columns="4"
+            :has-search="false"
+        />
+
+        <app-select
+            v-model="netWorthQueryDay"
+            v-model:show-dropdown="isDropdownQueryDayVisible"
+            :label="$t('settings.dashboard.net_worth_query_day')"
+            :popup-title="$t('settings.dashboard.net_worth_query_day')"
+            :list="netWorthQueryDayList"
+            :columns="7"
+            :has-search="false"
+        />
       </van-cell-group>
 
       <van-cell-group inset>
@@ -58,6 +78,13 @@ const firstDayOfMonth = ref(null)
 const firstDayOfMonthList = [...Array(27).keys()].map((item) => item + 1)
 const isDropdownFirstDayVisible = ref(false)
 
+const netWorthHistoryMonths = ref(null)
+const netWorthQueryDay = ref(null)
+const netWorthMonthsList = [3, 6, 12, 24]
+const netWorthQueryDayList = [...Array(28).keys()].map((i) => i + 1)
+const isDropdownNetWorthMonthsVisible = ref(false)
+const isDropdownQueryDayVisible = ref(false)
+
 const syncedSettings = [
   { store: profileStore, path: 'dashboard.areEmptyAccountsVisible', ref: areEmptyAccountsVisible },
   { store: profileStore, path: 'dashboard.showDecimal', ref: showDecimal },
@@ -65,6 +92,8 @@ const syncedSettings = [
   { store: profileStore, path: 'dashboard.excludedCategoriesList', ref: excludedCategoriesList },
   { store: profileStore, path: 'dashboard.excludedTagsList', ref: excludedTagsList },
   { store: profileStore, path: 'dashboard.firstDayOfMonth', ref: firstDayOfMonth },
+  { store: profileStore, path: 'dashboard.netWorthHistoryMonths', ref: netWorthHistoryMonths },
+  { store: profileStore, path: 'dashboard.netWorthQueryDay', ref: netWorthQueryDay },
 
 ]
 

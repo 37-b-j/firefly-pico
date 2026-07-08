@@ -423,7 +423,10 @@
       "expenses_only": "Nur Ausgaben",
       "net_amount": "Nettobetrag"
     },
-    "configure_cards": "Karten konfigurieren"
+    "configure_cards": "Karten konfigurieren",
+    "net_worth": {
+      "title": "Eigenkapitalentwicklung"
+    }
   },
   "profile_page": {
     "title": "Profil Liste",

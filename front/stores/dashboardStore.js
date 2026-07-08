@@ -46,6 +46,8 @@ export const useDashboardStore = defineStore('dashboard', () => {
   const isLoadingTransactions = ref(false)
   const isLoadingTransactionsLastWeek = ref(false)
   const dashboardCurrency = useLocalStorage('dashboardCurrency', null, { serializer: StorageSerializers.object })
+  const isLoadingNetWorthHistory = ref(false)
+  const netWorthHistory = ref([])
 
   // ----- Getters
   const dashboardAccountDictionary = computed(() => {
@@ -132,6 +134,8 @@ export const useDashboardStore = defineStore('dashboard', () => {
     const piggyBankStore = usePiggyBankStore()
     const recurringTransactionStore = useRecurringTransactionStore()
 
+    fetchNetWorthHistory()
+
     await Promise.all([
       fetchDashboardAccounts(),
       fetchTransactionsForInterval(),
@@ -156,6 +160,101 @@ export const useDashboardStore = defineStore('dashboard', () => {
     if (!dashboardCurrency.value?.id) {
       let currencies = list.map((item) => item?.attributes?.currency).filter((item) => !!item)
       dashboardCurrency.value = head(currencies)
+    }
+  }
+
+  function sumAccountsInNetWorth(list, targetCurrency) {
+    const allowedTypes = [Account.types.asset.fireflyCode, Account.types.liability.fireflyCode]
+    const filtered = list.filter((item) =>
+      allowedTypes.includes(item?.attributes?.type)
+      && Account.getIsActive(item)
+      && Account.getIsIncludedInNetWorth(item)
+    )
+    let total = 0
+    for (const account of filtered) {
+      const balance = parseFloat(account?.attributes?.current_balance ?? 0)
+      const accCurrency = account?.attributes?.currency_code ?? targetCurrency
+      total += convertCurrency(balance, accCurrency, targetCurrency)
+    }
+    return parseFloat(total.toFixed(2))
+  }
+
+  async function fetchAccountsForDate(dateStr) {
+    const pageSize = 200
+    let page = 1
+    let allAccounts = []
+
+    while (true) {
+      const response = await new AccountRepository().getAll({
+        filters: [{ field: 'date', value: dateStr }],
+        page,
+        pageSize,
+        showLoading: false,
+      })
+      const list = response?.data ?? []
+      allAccounts.push(...list)
+      const totalPages = response?.meta?.pagination?.total_pages ?? 1
+      if (page >= totalPages) break
+      page++
+    }
+    return allAccounts
+  }
+
+  async function fetchNetWorthHistory() {
+    const profileStore = useProfileStore()
+    const netWorthConfig = profileStore.dashboardWidgetsConfig.find((c) => c.code === 'netWorth')
+    if (netWorthConfig && netWorthConfig.isVisible === false) {
+      netWorthHistory.value = []
+      return
+    }
+
+    const months = profileStore.dashboard.netWorthHistoryMonths ?? 6
+    const queryDay = Math.min(profileStore.dashboard.netWorthQueryDay ?? 1, 28)
+    const targetCurrency = dashboardCurrencyCode.value || 'EUR'
+
+    isLoadingNetWorthHistory.value = true
+
+    try {
+      const today = startOfDay(new Date())
+      const tasks = []
+
+      const thisMonthQuery = setDate(startOfMonth(today), Math.min(queryDay, new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate()))
+      const includeCurrent = thisMonthQuery <= today
+      const start = startOfMonth(subMonths(today, includeCurrent ? months - 1 : months))
+      const end = includeCurrent ? startOfMonth(today) : startOfMonth(subMonths(today, 1))
+
+      let cursor = new Date(start)
+      while (cursor <= end) {
+        const maxDay = new Date(cursor.getFullYear(), cursor.getMonth() + 1, 0).getDate()
+        const day = Math.min(queryDay, maxDay)
+        const queryDate = new Date(cursor.getFullYear(), cursor.getMonth(), day)
+        const dateStr = DateUtils.dateToString(queryDate)
+        const monthLabel = `${queryDate.getFullYear()}-${String(queryDate.getMonth() + 1).padStart(2, '0')}`
+
+        tasks.push({ dateStr, label: monthLabel })
+        cursor = addMonths(cursor, 1)
+      }
+      tasks.push({ dateStr: DateUtils.dateToString(today), label: 'today' })
+
+      const results = []
+      const batchSize = 2
+      for (let i = 0; i < tasks.length; i += batchSize) {
+        const batch = tasks.slice(i, i + batchSize)
+        const batchResults = await Promise.all(
+          batch.map((t) =>
+            fetchAccountsForDate(t.dateStr)
+              .then((list) => ({ date: t.label, total: sumAccountsInNetWorth(list, targetCurrency) }))
+              .catch(() => ({ date: t.label, total: 0 }))
+          )
+        )
+        results.push(...batchResults)
+      }
+
+      netWorthHistory.value = results
+    } catch {
+      netWorthHistory.value = []
+    } finally {
+      isLoadingNetWorthHistory.value = false
     }
   }
 
@@ -298,6 +397,26 @@ export const useDashboardStore = defineStore('dashboard', () => {
 
   const transactionsLatest = computed(() => transactionsList.value.slice(0, 3))
 
+  const netWorthChartData = computed(() =>
+    netWorthHistory.value.map((item) => ({
+      date: item.date,
+      value: parseFloat(item.total ?? 0),
+    }))
+  )
+
+  const netWorthCurrent = computed(() => {
+    if (netWorthHistory.value.length === 0) return 0
+    return parseFloat(netWorthHistory.value[netWorthHistory.value.length - 1]?.total ?? 0)
+  })
+
+  const netWorthTrend = computed(() => {
+    if (netWorthHistory.value.length < 2) return null
+    const first = parseFloat(netWorthHistory.value[0]?.total ?? 0)
+    const last = parseFloat(netWorthHistory.value[netWorthHistory.value.length - 1]?.total ?? 0)
+    if (first === 0) return null
+    return ((last - first) / Math.abs(first)) * 100
+  })
+
   const dashboardCalendarTransactionsByDate = computed(() => {
     return transactionsList.value.reduce((result, transaction) => {
       const date = DateUtils.dateToString(Transaction.getDate(transaction))
@@ -400,6 +519,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
     fetchTransactionsWithTodos,
     fetchDashboardAccounts,
     fetchDashboard,
+    fetchNetWorthHistory,
     isLoadingTransactions,
     isLoadingTransactionsLastWeek,
     // Computed Statistics
@@ -419,6 +539,11 @@ export const useDashboardStore = defineStore('dashboard', () => {
     dashboardTransfersByCategory,
     dashboardTransfersByTag,
     transactionsLatest,
+    netWorthHistory,
+    isLoadingNetWorthHistory,
+    netWorthChartData,
+    netWorthCurrent,
+    netWorthTrend,
     dashboardCalendarTransactionsByDate,
     dashboardExpenseByDay,
     transactionsListSavingsIn,

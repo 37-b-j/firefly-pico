@@ -423,7 +423,10 @@
       "expenses_only": "Expenses only",
       "net_amount": "Net amount"
     },
-    "configure_cards": "Configure cards"
+    "configure_cards": "Configure cards",
+    "net_worth": {
+      "title": "Net worth evolution"
+    }
   },
   "profile_page": {
     "title": "Profiles list",
