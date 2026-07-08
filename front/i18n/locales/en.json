@@ -132,6 +132,7 @@
       "theme": "Theme",
       "title": "UI settings",
       "show_animations": "Show animations",
+      "is_profile_float_visible": "Show profile floating button on dashboard",
       "reset_forms_after_creation": "Reset forms after creation",
       "transaction_list": "Transaction list",
       "select_hero_icons": "Select what Hero Icons to show",
@@ -148,6 +149,7 @@
     "assistant_entry": "Assistant",
     "assistant": {
       "title": "Assistant settings",
+      "auto_focus": "Auto focus assistant",
       "substring_todo_tag": "Substring which adds the todo tag",
       "currency": "The amount part in the assistant text will be interpreted as a foreign currency of this kind"
     },
@@ -206,7 +208,8 @@
         "default_category": "Default category",
         "default_tags": "Default tags (only preselected)",
         "auto_tags": "Auto tags (appended after creation)",
-        "foreign_currency": "Foreign currency for expenses"
+        "foreign_currency": "Foreign currency for expenses",
+        "set_default_time_to_midnight": "Set default time to 00:00"
       }
     },
     "about_entry": "About",

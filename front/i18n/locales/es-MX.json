@@ -148,6 +148,7 @@
     "assistant_entry": "Asistente",
     "assistant": {
       "title": "Ajustes del asistente",
+      "auto_focus": "Auto focus assistant",
       "substring_todo_tag": "Subcadena que agrega la etiqueta pendiente",
       "currency": "La parte del monto en el texto del asistente se interpretará como moneda extranjera de este tipo"
     },
@@ -206,7 +207,8 @@
         "default_category": "Categoría por defecto",
         "default_tags": "Etiquetas por defecto (solo preseleccionadas)",
         "auto_tags": "Etiquetas automáticas (agregadas después de crear)",
-        "foreign_currency": "Moneda extranjera para gastos"
+        "foreign_currency": "Moneda extranjera para gastos",
+        "set_default_time_to_midnight": "Establecer la hora predeterminada en 00:00"
       }
     },
     "about_entry": "Acerca de",

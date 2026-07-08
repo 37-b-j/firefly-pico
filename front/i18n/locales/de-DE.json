@@ -132,6 +132,7 @@
       "theme": "Theme",
       "title": "UI Einstellungen",
       "show_animations": "Animationen anzeigen",
+      "is_profile_float_visible": "Profil-Button auf Dashboard anzeigen",
       "reset_forms_after_creation": "Formulare nach Erzeugung zurücksetzten",
       "transaction_list": "Transaktions-Liste",
       "select_hero_icons": "Auswählen welche Hero Icons angzeig werden",
@@ -148,6 +149,7 @@
     "assistant_entry": "Assistent",
     "assistant": {
       "title": "Assistent Einstellungen",
+      "auto_focus": "Auto focus assistant",
       "substring_todo_tag": "Teiltext welcher den ToDo Tag hinzufügt",
       "currency": "Der Betrag Teil im Assistent-Text wird als ausändische Währung dieser Art interpretiert."
     },
@@ -206,7 +208,8 @@
         "default_category": "Standard-Kategorie",
         "default_tags": "Standard Tags (nur vorselektierte)",
         "auto_tags": "Auto Tags (nach Erzeugung anfügen)",
-        "foreign_currency": "Ausländische Währung für Ausgaben"
+        "foreign_currency": "Ausländische Währung für Ausgaben",
+        "set_default_time_to_midnight": "Standardzeit auf 00:00 setzen"
       }
     },
     "about_entry": "Über",

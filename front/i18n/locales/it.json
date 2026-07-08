@@ -148,6 +148,7 @@
     "assistant_entry": "Assistente",
     "assistant": {
       "title": "Impostazioni assistente",
+      "auto_focus": "Auto focus assistant",
       "substring_todo_tag": "Sottostringa che aggiunge il tag \"da fare\"",
       "currency": "La parte dell'importo nel testo dell'assistente sarà interpretata come valuta estera di questo tipo"
     },
@@ -206,7 +207,8 @@
         "default_category": "Categoria predefinita",
         "default_tags": "Tag predefiniti (solo preselezionati)",
         "auto_tags": "Tag automatici (aggiunti dopo la creazione)",
-        "foreign_currency": "Valuta estera per le spese"
+        "foreign_currency": "Valuta estera per le spese",
+        "set_default_time_to_midnight": "Imposta l'orario predefinito su 00:00"
       }
     },
     "about_entry": "Informazioni",
